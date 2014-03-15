@@ -3,7 +3,7 @@
 <head>
     <title>Defect Tracking System</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
+    <link rel="stylesheet" href="assets/css/jquery.mobile.css" />
     <link href="assets/css/style.css" rel="stylesheet" />
     <script type="text/javascript" charset="utf-8" src="phonegap-3.1.0.js"></script>
     <script src="assets/js/jquery.js"></script>
@@ -114,14 +114,25 @@
                 <li data-role="list-divider">Welcome, Amit Kharya</li>
                 <li>Winder Name<span class="ui-li-count">MX2234</span></li>
                 <li>Winder Speed<span class="ui-li-count">300 m/hr</span></li>
-                <li>Roll Number<span class="ui-li-count">2345</span></li>
-                <li>Mode<span class="ui-li-count">Production</span></li>
             </ul>
+            <select>
+                <option value="-1">Select Roll No</option>
+                <option value="1">2234</option>
+                <option value="2">3566</option>
+            </select>
+            <fieldset data-role="controlgroup">
+                <legend>Machine Mode:</legend>
+                <input name="radio-choice-b" id="radio-choice-c" value="Production" checked="checked"
+                    type="radio">
+                <label for="radio-choice-c">
+                    Production</label>
+                <input name="radio-choice-b" id="radio-choice-d" value="Trail" type="radio">
+                <label for="radio-choice-d">
+                    Trial</label>
+            </fieldset>
             <input type="hidden" id="lblRollNo" value="" />
             <a class="ui-shadow ui-btn ui-corner-all  btn-success btn-large" href="#Dashboard"
                 onclick="setMachineTime();"><i class="fa fa-cog"></i>&nbsp;Start Machine </a>
-            <a href="#DefectList" class="ui-shadow ui-btn ui-corner-all btn-info  btn-success btn-large"
-                href="#Dashboard"><i class="fa fa-bar-chart-o"></i>&nbsp;Defect History</a>
         </div>
         <div data-role="footer" data-position="fixed">
             <h4>
@@ -132,11 +143,11 @@
     <div data-role="page" id="Dashboard">
         <div data-role="header" data-position="fixed">
             <label id="lblTimer" class="btn-success ui-corner-all">
-                <i class="fa fa-clock-o"></i>00:00:00</label>
+                <i class="fa fa-clock-o"></i> 00:00:00</label>
             <label id="lblLength" class="btn-success ui-corner-all">
-                <i class="fa fa-film"></i>0.0 m</label>
+                <i class="fa fa-film"></i> 0.0 m</label>
             <h4>
-                MX2234</h4>
+                MX2234-2234</h4>
         </div>
         <div role="main" class="ui-content">
             <div data-role="tabs" id="tabs">
@@ -148,98 +159,146 @@
                     </ul>
                 </div>
                 <div id="DefectReview" class="ui-body-d ui-content">
-                    <ul class="DefectReviewList">
-                        <li class="btn-danger ui-corner-all"><strong>P1</strong><span>202-1L 350m </span></li>
-                        <li class="btn-danger ui-corner-all"><strong>P1</strong><span>212-3C 390m </span></li>
-                        <li class="btn-danger ui-corner-all"><strong>P1</strong><span>19-2L 420m </span></li>
-                        <li class="btn-danger ui-corner-all"><strong>P1</strong><span>26-1R 500m </span></li>
-                        <li class="btn-warning ui-corner-all"><strong>P1</strong><span>86-1L 350m </span></li>
-                        <li class="btn-warning ui-corner-all"><strong>P1</strong><span>202-1L 350m </span></li>
-                        <li class="btn-warning ui-corner-all"><strong>P1</strong><span>202-1L 350m </span></li>
-                        <li class="btn-warning ui-corner-all"><strong>P1</strong><span>202-1L 350m </span></li>
-                        <li class="btn-warning ui-corner-all"><strong>P1</strong><span>202-1L 350m </span></li>
-                        <li class="btn-warning ui-corner-all"><strong>P1</strong><span>202-1L 350m </span></li>
+                    <ul class="DefectReviewList" data-role="listview">
+                        <li class="btn-danger ui-corner-all"><strong>P1</strong>105(Black Spot) High-Left <span
+                            class="ui-li-count">350m</span><span class="time-lapse"><i class="fa fa-clock-o"></i>
+                                10 seconds to go</span> </li>
+                        <li class="btn-danger ui-corner-all"><strong>P1</strong>008 (Bubbles) Low-Right <span
+                            class="ui-li-count">390m </span></li>
+                        <li class="btn-danger ui-corner-all"><strong>P1</strong>014 (Colour lines) Low-Left
+                            <span class="ui-li-count">420m </span></li>
+                        <li class="btn-warning ui-corner-all"><strong>P1</strong>019 (Core damage) Mid-Center
+                            <span class="ui-li-count">500m </span></li>
+                        <li class="btn-warning ui-corner-all"><strong>P1</strong>105(Black Spot) Low-Left<span
+                            class="ui-li-count"> 650m </span></li>
+                        <li class="btn-warning ui-corner-all"><strong>P1</strong>014 (Colour lines) Low-Left<span
+                            class="ui-li-count"> 710m </span></li>
+                        <li class="btn-success ui-corner-all"><strong>P1</strong>21 (Curling with liner) High-Right
+                            <span class="ui-li-count">760m </span></li>
+                        <li class="btn-success ui-corner-all"><strong>P1</strong>118 (Wrinkle impressions) Low-Right
+                            <span class="ui-li-count">800m </span></li>
+                        <li class="btn-success ui-corner-all"><strong>P1</strong>019 (Core damage) Low-Center<span
+                            class="ui-li-count"> 810m </span></li>
+                        <li class="btn-success ui-corner-all"><strong>P1</strong>008 (Bubbles) Low-Right<span
+                            class="ui-li-count"> 850m </span></li>
                     </ul>
                 </div>
                 <div id="DefectRegister">
-                     <div id="CodePanel">
-                <input name="text-basic" id="txtDefectCode" class="input-large bordered" value=""
-                    type="number" disabled="disabled">
-                <div class="ui-grid-b ui-responsive">
-                    <div class="ui-block-a">
-                        <a href="#" class="ui-btn btn-primary ui-corner-all btn-large btn-dail">1</a></div>
-                    <div class="ui-block-b">
-                        <a href="#" class="ui-btn btn-primary ui-corner-all btn-large btn-dail">2</a></div>
-                    <div class="ui-block-c">
-                        <a href="#" class="ui-btn btn-primary ui-corner-all btn-large btn-dail">3</a></div>
-                    <div class="ui-block-a">
-                        <a href="#" class="ui-btn btn-primary ui-corner-all btn-large btn-dail">4</a></div>
-                    <div class="ui-block-b">
-                        <a href="#" class="ui-btn btn-primary ui-corner-all btn-large btn-dail">5</a></div>
-                    <div class="ui-block-c">
-                        <a href="#" class="ui-btn btn-primary ui-corner-all btn-large btn-dail">6</a></div>
-                    <div class="ui-block-a">
-                        <a href="#" class="ui-btn btn-primary ui-corner-all btn-large btn-dail">7</a></div>
-                    <div class="ui-block-b">
-                        <a href="#" class="ui-btn btn-primary ui-corner-all btn-large btn-dail">8</a></div>
-                    <div class="ui-block-c">
-                        <a href="#" class="ui-btn btn-primary ui-corner-all btn-large btn-dail">9</a></div>
-                   
-                    <div class="ui-block-a">
-                        <a href="#" class="ui-btn btn-primary ui-corner-all btn-large btn-dail">0</a></div>
-                    <div class="ui-block-b">
-                        <a href="#" class="ui-btn btn-danger ui-corner-all btn-large" onclick="clearDefectCode();">
-                            <i class="fa fa-times"></i></a>
+                    <div id="CodePanel">
+                        <input name="text-basic" id="txtDefectCode" class="input-large bordered" value=""
+                            type="number" disabled="disabled">
+                        <div class="ui-grid-b ui-responsive">
+                            <div class="ui-block-a">
+                                <a href="#" class="ui-btn btn-primary ui-corner-all btn-large btn-dail">1</a></div>
+                            <div class="ui-block-b">
+                                <a href="#" class="ui-btn btn-primary ui-corner-all btn-large btn-dail">2</a></div>
+                            <div class="ui-block-c">
+                                <a href="#" class="ui-btn btn-primary ui-corner-all btn-large btn-dail">3</a></div>
+                            <div class="ui-block-a">
+                                <a href="#" class="ui-btn btn-primary ui-corner-all btn-large btn-dail">4</a></div>
+                            <div class="ui-block-b">
+                                <a href="#" class="ui-btn btn-primary ui-corner-all btn-large btn-dail">5</a></div>
+                            <div class="ui-block-c">
+                                <a href="#" class="ui-btn btn-primary ui-corner-all btn-large btn-dail">6</a></div>
+                            <div class="ui-block-a">
+                                <a href="#" class="ui-btn btn-primary ui-corner-all btn-large btn-dail">7</a></div>
+                            <div class="ui-block-b">
+                                <a href="#" class="ui-btn btn-primary ui-corner-all btn-large btn-dail">8</a></div>
+                            <div class="ui-block-c">
+                                <a href="#" class="ui-btn btn-primary ui-corner-all btn-large btn-dail">9</a></div>
+                            <div class="ui-block-a">
+                                <a href="#" class="ui-btn btn-primary ui-corner-all btn-large btn-dail">0</a></div>
+                            <div class="ui-block-b">
+                                <a href="#" class="ui-btn btn-danger ui-corner-all btn-large" onclick="clearDefectCode();">
+                                    <i class="fa fa-times"></i></a>
+                            </div>
+                        </div>
+                        <a class="ui-btn btn-success ui-corner-all btn-large" onclick="sendSMS('MX2234',$('#txtDefectCode').val(),'Amit Kharya');">
+                            Submit</a>
                     </div>
-                </div>
-                <a class="ui-btn btn-success ui-corner-all btn-large" onclick="sendSMS('MX2234',$('#txtDefectCode').val(),'Amit Kharya');">
-                    Submit</a>
-            </div>
-            <div id="ListPanel" style="display: none;">
-                <a class="ui-btn btn-teal ui-corner-all btn-large" href="#popupDialog" data-rel="popup"
-                    data-position-to="window" data-transition="pop" onclick="sendSMS('MX2234','Black Spot','Amit Kharya','150');">
-                    Black Spot <span class="ui-li-count">2</span></a> <a class="ui-btn btn-danger ui-corner-all btn-large"
-                        href="#popupDialog" data-rel="popup" data-position-to="window" data-transition="pop"
-                        onclick="sendSMS('MX2234','Flow Mark','Amit Kharya');">Flow Mark</a> <a class="ui-btn btn-danger ui-corner-all btn-large"
-                            href="#popupDialog" data-rel="popup" data-position-to="window" data-transition="pop"
-                            onclick="sendSMS('MX2234','Patch Mark','Amit Kharya');">Patch Mark</a>
-                <a class="ui-btn btn-teal ui-corner-all btn-large" href="#popupDialog" data-rel="popup"
-                    data-position-to="window" data-transition="pop" onclick="sendSMS('MX2234','Rust / Oil / Spray Mark','Amit Kharya');">
-                    Rust / Oil / Spray Mark <span class="ui-li-count">1</span></a> <a class="ui-btn btn-danger ui-corner-all btn-large"
-                        href="#popupDialog" data-rel="popup" data-position-to="window" data-transition="pop"
-                        onclick="sendSMS('MX2234','Scratch / Stretch','Amit Kharya');">Scratch / Stretch</a>
-                <a class="ui-btn btn-warning ui-corner-all btn-large" href="#popupDialog" data-rel="popup"
-                    data-position-to="window" data-transition="pop" onclick="sendSMS('MX2234','Warpage Line','Amit Kharya');">
-                    Warpage Line <span class="ui-li-count">1</span></a> <a class="ui-btn btn-warning ui-corner-all btn-large"
-                        href="#popupDialog" data-rel="popup" data-position-to="window" data-transition="pop"
-                        onclick="sendSMS('MX2234','Bubble','Amit Kharya');">Bubble</a>
-                <div data-role="popup" id="popupDialog" data-dismissible="false" style="max-width: 400px;">
-                    <div data-role="header" data-theme="a">
-                        <h1>
-                            Defect Register</h1>
+                    <div id="ListPanel" style="display: none;">
+                        <a class="ui-btn btn-teal ui-corner-all btn-large" href="#popupDialog" data-rel="popup"
+                            data-position-to="window" data-transition="pop" onclick="sendSMS('MX2234','Black Spot','Amit Kharya','150');">
+                            Black Spot <span class="ui-li-count">2</span></a> <a class="ui-btn btn-danger ui-corner-all btn-large"
+                                href="#popupDialog" data-rel="popup" data-position-to="window" data-transition="pop"
+                                onclick="sendSMS('MX2234','Flow Mark','Amit Kharya');">Flow Mark</a> <a class="ui-btn btn-danger ui-corner-all btn-large"
+                                    href="#popupDialog" data-rel="popup" data-position-to="window" data-transition="pop"
+                                    onclick="sendSMS('MX2234','Patch Mark','Amit Kharya');">Patch Mark</a>
+                        <a class="ui-btn btn-teal ui-corner-all btn-large" href="#popupDialog" data-rel="popup"
+                            data-position-to="window" data-transition="pop" onclick="sendSMS('MX2234','Rust / Oil / Spray Mark','Amit Kharya');">
+                            Rust / Oil / Spray Mark <span class="ui-li-count">1</span></a> <a class="ui-btn btn-danger ui-corner-all btn-large"
+                                href="#popupDialog" data-rel="popup" data-position-to="window" data-transition="pop"
+                                onclick="sendSMS('MX2234','Scratch / Stretch','Amit Kharya');">Scratch / Stretch</a>
+                        <a class="ui-btn btn-warning ui-corner-all btn-large" href="#popupDialog" data-rel="popup"
+                            data-position-to="window" data-transition="pop" onclick="sendSMS('MX2234','Warpage Line','Amit Kharya');">
+                            Warpage Line <span class="ui-li-count">1</span></a> <a class="ui-btn btn-warning ui-corner-all btn-large"
+                                href="#popupDialog" data-rel="popup" data-position-to="window" data-transition="pop"
+                                onclick="sendSMS('MX2234','Bubble','Amit Kharya');">Bubble</a>
+                        <div data-role="popup" id="popupDialog" data-dismissible="false" style="max-width: 400px;">
+                            <div data-role="header" data-theme="a">
+                                <h1>
+                                    Defect Register</h1>
+                            </div>
+                            <div role="main" class="ui-content">
+                                <h4 class="ui-title">
+                                    Are you sure you want to Register Defect?</h4>
+                                <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline btn-success" data-rel="back"
+                                    data-transition="flow">Yes</a> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline btn-danger"
+                                        data-rel="back">No</a>
+                            </div>
+                        </div>
                     </div>
-                    <div role="main" class="ui-content">
-                        <h4 class="ui-title">
-                            Are you sure you want to Register Defect?</h4>
-                        <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline btn-success" data-rel="back"
-                            data-transition="flow">Yes</a> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline btn-danger"
-                                data-rel="back">No</a>
-                    </div>
-                </div>
-            </div>
                 </div>
                 <div id="DefectHistory" class="ui-body-d ui-content">
-                    <h1>
-                       Defect History</h1>
+                    <ul class="DefectReviewList" data-role="listview" data-inset="true" data-theme="a" data-count-theme="b">
+                        <li><strong>P1</strong>105(Black Spot) High-Left <span class="ui-li-count">050m</span>
+                        </li>
+                        <li><strong>P1</strong>008 (Bubbles) Low-Right <span class="ui-li-count">090m </span>
+                        </li>
+                        <li><strong>P1</strong>014 (Colour lines) Low-Left <span class="ui-li-count">120m </span>
+                        </li>
+                        <li class="highlight1"><strong>P2</strong>019 (Core damage) Mid-Center <span class="ui-li-count">150m </span>
+                        </li>
+                        <li><strong>P1</strong>105(Black Spot) Low-Left<span class="ui-li-count"> 180m </span>
+                        </li>
+                        <li class="highlight1"><strong>P2</strong>014 (Colour lines) Low-Left<span class="ui-li-count"> 210m </span>
+                        </li>
+                        <li class="highlight2"><strong>P2</strong>21 (Curling with liner) High-Right <span class="ui-li-count">
+                            260m </span></li>
+                        <li><strong>P1</strong>118 (Wrinkle impressions) Low-Right <span class="ui-li-count">
+                            300m </span></li>
+                        <li><strong>P1</strong>105(Black Spot) High-Left<span class="ui-li-count"> 350m </span>
+                        </li>
+                        <li><strong>P1</strong>008 (Bubbles) Low-Right<span class="ui-li-count"> 390m </span>
+                        </li>
+                        
+                        <li><strong>P1</strong>014 (Colour lines) Low-Left <span class="ui-li-count">420m </span>
+                        </li>
+                        <li><strong>P1</strong>019 (Core damage) Mid-Center <span class="ui-li-count">500m </span>
+                        </li>
+                        <li><strong>P1</strong>105(Black Spot) Low-Left<span class="ui-li-count"> 650m </span>
+                        </li>
+                        <li><strong>P1</strong>014 (Colour lines) Low-Left<span class="ui-li-count"> 710m </span>
+                        </li>
+                        <li><strong>P1</strong>21 (Curling with liner) High-Right <span class="ui-li-count">
+                            760m </span></li>
+                        <li><strong>P1</strong>118 (Wrinkle impressions) Low-Right <span class="ui-li-count">
+                            800m </span></li>
+                        <li><strong>P1</strong>019 (Core damage) Low-Center<span class="ui-li-count"> 810m </span>
+                        </li>
+                        <li><strong>P1</strong>008 (Bubbles) Low-Right<span class="ui-li-count"> 850m </span>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
         <div data-role="footer" data-position="fixed">
             <a href="#WelcomePage" class="ui-btn ui-btn-left  btn-danger ui-corner-all " title="Stop Machine">
-                <i class="fa fa-cog"></i>Stop</a> <a href="#" class="ui-btn ui-btn-left   btn-primary ui-corner-all"
-                    onclick="SwitchKeypad();"><i class="fa fa-keyboard-o"></i></a><a href="#LoginPage"
-                        class="ui-btn ui-btn-right  btn-warning ui-corner-all" title="Logoff">Amit K. <i
-                            class="fa fa-power-off"></i></a>
+                <i class="fa fa-stop"></i></a><a href="#" id="btnPause" class="ui-btn ui-btn-left  btn-warning ui-corner-all "
+                    title="Puase"><i class="fa fa-pause"></i></a><a href="#" id="btnSwitchKeypad" class="ui-btn ui-btn-left   btn-primary ui-corner-all"
+                        onclick="SwitchKeypad();"><i class="fa fa-keyboard-o"></i></a><a href="#LoginPage"
+                            class="ui-btn ui-btn-right  btn-warning ui-corner-all" title="Logoff">Amit K. <i
+                                class="fa fa-power-off"></i></a>
         </div>
         <!-- /footer -->
     </div>

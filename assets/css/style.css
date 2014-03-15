@@ -342,7 +342,7 @@
     padding:0;
 }
 
-.DefectReviewList li
+#DefectReview .DefectReviewList li
 {
     list-style: none;
     margin: 5px 0;
@@ -351,16 +351,41 @@
     padding: 5px 10px;
     font-size: 30px;
     line-height:50px;
+    -webkit-border-radius: .3125em;
+    border-radius: .3125em;
 }
-
+#DefectReview .DefectReviewList li:first-child
+{
+    height:100px;
+}
 .DefectReviewList li strong
 {
-    background: #fff;
-    color: #000;
-    padding: 0 5px;
+    border-right:1px solid #fff;
     margin-right: 10px;
+    padding-right:10px;
 }
 
-.DefectReviewList li span   
+.DefectReviewList li .time-lapse
 {
+    display: block;
+    font-size: 18px;
+}
+
+#btnPause
+{
+    left:70px;
+}
+#btnSwitchKeypad
+{
+    left:130px;
+}
+
+#dtsApp .highlight1
+{
+    background:#F4F4F4;
+}
+
+#dtsApp .highlight2
+{
+    background: #E2E2E2;
 }
